@@ -29,25 +29,16 @@ jobs:
         run: |
           cd ${{ github.workspace }}/theos/sdks
           printf "\033[33m==> \033[0m Installing SDK\n" && wget https://www.dropbox.com/s/jvonok3de24ibsz/14.1.zip > /dev/null 2>&1 && unzip 14.1.zip > /dev/null 2>&1 && printf "\033[32m==> \033[0m SDK successfully installed\n" || printf "\033[31m==> \033[0m Oops! something goes wrong. (check logs for details)"
-      - name: Build Alerts
+      - name: Build Tweak
         run: |
           source .env
-          cd Stock/
-          make clean package
-          mv -v packages/*.deb FavourAlert-Stock.deb
-          dpkg -x FavourAlert-Stock.deb $(PWD)
-          mv -v Library/MobileSubstrate/DynamicLibraries/AppleFavour_StockAlert.dylib $(PWD)
-          cd ../SCL/
-          make clean package
-          mv -v packages/*.deb SCL-Alert.deb
-          dpkg -x SCL-Alert.deb $(PWD)
-          mv -v Library/MobileSubstrate/DynamicLibraries/applefavour.dylib $(PWD)
+          cd CellularX/
+          make package
+          mv -v packages/*.deb cellularx.deb
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: AlertBanners.zip
+          name: Tweak
           path: |
-            /Users/runner/work/AlertBanners/AlertBanners/Stock/FavourAlert-Stock.deb
-            /Users/runner/work/AlertBanners/AlertBanners/Stock/AppleFavour_StockAlert.dylib
-            /Users/runner/work/AlertBanners/AlertBanners/SCL/SCL-Alert.deb
-            /Users/runner/work/AlertBanners/AlertBanners/SCL/applefavour.dylib
+            /Users/runner/work/CellularX/CellularX/packages/cellularx.deb
