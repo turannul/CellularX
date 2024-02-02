@@ -1,0 +1,9 @@
+{
+    entry =     {
+        bundle = CellularXS;
+        cell = PSLinkCell;
+        detail = CXSettingController;
+        isController = 1;
+        label = CellularXS;
+    };
+}
