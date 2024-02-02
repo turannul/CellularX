@@ -32,7 +32,6 @@ jobs:
       - name: Build Tweak
         run: |
           source .env
-          cd CellularX/
           make package
           mv -v packages/*.deb cellularx.deb
 
