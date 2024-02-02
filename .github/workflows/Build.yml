@@ -40,4 +40,4 @@ jobs:
         with:
           name: Tweak
           path: |
-            /Users/runner/work/CellularX/CellularX/packages/cellularx.deb
+            /Users/runner/work/CellularX/packages/cellularx.deb
