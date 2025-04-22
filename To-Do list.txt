@@ -2,5 +2,3 @@
 Design a icon for settings & cydia/sileo
 Support Custom operator names for each sim
 Make Repo depictions
-
-Note: try to find original author of tweak
